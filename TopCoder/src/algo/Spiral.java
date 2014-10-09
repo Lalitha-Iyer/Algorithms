@@ -32,28 +32,33 @@ public class Spiral {
 		int l = numRows;
 
 		int topRow = 0;
-		int bottomRow = numRows-1;
+		int bottomRow = numRows - 1;
 		int leftCol = 0;
-		int rightCol = numCols-1;
+		int rightCol = numCols - 1;
 
-		while (topRow <= bottomRow && leftCol<=rightCol) {
+		while (topRow <=bottomRow && leftCol <=rightCol) {
+			if(topRow ==bottomRow && leftCol ==rightCol)
+				System.out.println(input[topRow][leftCol]);
 			for (j = leftCol; j < rightCol; j++)
-				System.out.print(input[topRow][j]+",");
+				System.out.print(input[topRow][j] + ",");
 			for (i = topRow; i < bottomRow; i++)
-				System.out.print(input[i][rightCol]+",");
+				System.out.print(input[i][rightCol] + ",");
 			for (i = rightCol; i > leftCol; i--)
-				System.out.print(input[bottomRow][i]+",");
+				System.out.print(input[bottomRow][i] + ",");
 			for (j = bottomRow; j > topRow; j--)
-				System.out.print(input[j][leftCol]+",");
+				System.out.print(input[j][leftCol] + ",");
 
 			topRow++;
 			bottomRow--;
 			leftCol++;
 			rightCol--;
-
 		}
 		
-        
-    
+		
+		
+		
+		
+		
+
 	}
 }
