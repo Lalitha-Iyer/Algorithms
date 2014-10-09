@@ -33,7 +33,7 @@ public class PipeCuts {
 	}
 
 	public static void main(String[] args) {
-		int[] num = { 25, 50, 75 };
+		int[] num = { 50, 25, 75 };
 		double count = probablity(num, 24);
 		System.out.print(count);
 	}
