@@ -36,8 +36,8 @@ public class Spiral {
 		int leftCol = 0;
 		int rightCol = numCols - 1;
 
-		while (topRow <=bottomRow && leftCol <=rightCol) {
-			if(topRow ==bottomRow && leftCol ==rightCol)
+		while (topRow <= bottomRow && leftCol <= rightCol) {
+			if (topRow == bottomRow && leftCol == rightCol)
 				System.out.println(input[topRow][leftCol]);
 			for (j = leftCol; j < rightCol; j++)
 				System.out.print(input[topRow][j] + ",");
@@ -53,12 +53,6 @@ public class Spiral {
 			leftCol++;
 			rightCol--;
 		}
-		
-		
-		
-		
-		
-		
 
 	}
 }
