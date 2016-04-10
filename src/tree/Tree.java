@@ -61,4 +61,24 @@ public class Tree {
 		}
 	}
 	
+	
+	public int getDepthDFS1(){
+		int maxDepth= 1;
+		maxDepth = getDepthDFS1(root,1);
+		return maxDepth;
+	}
+	private int getDepthDFS1(Node parent,int currentDepth) {
+		int leftMax=-1,rightMax=-1;
+		if(parent.left!=null){
+			leftMax=getDepthDFS1(parent.left,currentDepth+1);
+		}
+		if(parent.right!=null){
+			rightMax=getDepthDFS1(parent.right,currentDepth+1);
+		}
+		if(parent.left==null&&parent.right==null){
+			return currentDepth;
+		}
+		return leftMax>rightMax?leftMax:rightMax;
+	}
+	
 }

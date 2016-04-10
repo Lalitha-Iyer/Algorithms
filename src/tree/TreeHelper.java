@@ -44,7 +44,7 @@ public class TreeHelper {
 		Node root = readTree(args[0]);
 		Tree tree = new Tree(root);
 		System.out.println("tree depth BFS " + tree.getDepthBFS());
-		System.out.println("tree depth DFS " + tree.getDepthDFS());
+		System.out.println("tree depth DFS " + tree.getDepthDFS1());
 		tree = new Tree(null);
 		System.out.println("tree depth BFS " + tree.getDepthBFS());
 		
