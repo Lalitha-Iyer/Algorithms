@@ -29,6 +29,7 @@ public class Tree {
 					q.add(current);
 				}
 				depth++;
+				continue;
 			}
 			//Add left and right child if they are not null
 			if (current.left != null) {
