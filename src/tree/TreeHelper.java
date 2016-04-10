@@ -43,7 +43,7 @@ public class TreeHelper {
 		Node root=readTree(args[0]);
 		
 	}
-	private static Node readTree(String path) throws IOException{
+	public static Node readTree(String path) throws IOException{
 
 		FileReader fr=new FileReader(path);
 		BufferedReader br=new BufferedReader(fr);
