@@ -43,9 +43,9 @@ public class TreeHelper {
 	public static void main(String[] args) throws IOException {
 		Node root = readTree(args[0]);
 		Tree tree = new Tree(root);
-		System.out.print("tree depth " + tree.getDepthBFS());
+		System.out.println("tree depth BFS " + tree.getDepthBFS());
 		tree = new Tree(null);
-		System.out.println("tree depth " + tree.getDepthBFS());
+		System.out.println("tree depth BFS " + tree.getDepthBFS());
 
 	}
 
