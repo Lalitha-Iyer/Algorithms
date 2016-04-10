@@ -43,7 +43,9 @@ public class TreeHelper {
 	public static void main(String[] args) throws IOException {
 		Node root = readTree(args[0]);
 		Tree tree = new Tree(root);
-		System.out.print("tree depth" + tree.getDepthBFS());
+		System.out.println("tree depth BFS " + tree.getDepthBFS());
+		tree = new Tree(null);
+		System.out.println("tree depth BFS " + tree.getDepthBFS());
 
 	}
 
@@ -59,8 +61,12 @@ public class TreeHelper {
 		String[] arrayTree = sb.toString().split(",");
 		Node root = new Node();
 		// some check should be here
-		root.val = Integer.parseInt(arrayTree[0]);
-		dfs(root, 0, arrayTree);
+		if (arrayTree.length == 0)
+			root = null;
+		else {
+			root.val = Integer.parseInt(arrayTree[0]);
+			dfs(root, 0, arrayTree);
+		}
 		return root;
 	}
 
