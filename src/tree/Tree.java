@@ -44,9 +44,10 @@ public class Tree {
 
 	}
 
-	public void getDepthDFS(){
-		int[] maxDepth={0};
-		getDepthDFS(root,0,maxDepth);
+	public int getDepthDFS(){
+		int[] maxDepth={1};
+		getDepthDFS(root,1,maxDepth);
+		return maxDepth[0];
 	}
 	private void getDepthDFS(Node parent,int currentDepth,int[] maxDepth) {
 		if(parent.left!=null){
