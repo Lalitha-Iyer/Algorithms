@@ -51,6 +51,8 @@ public class TreeHelper {
 		root.val=Integer.parseInt(arrayTree[0]);
 		
 		dfs(root,0,arrayTree);
+		Tree tree = new Tree(root);
+		System.out.print("tree depth"+tree.getDepthBFS());
 		
 	}
 
