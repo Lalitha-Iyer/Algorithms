@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class TreeHelper {
 
-	public static void dfs(Node parent,int parentId,String[] arrayTree){
+	private static void dfs(Node parent,int parentId,String[] arrayTree){
 		String leftNodeStr="";
 		String rightNodeStr="";
 		int leftIndex=parentId*2+1;
@@ -32,13 +32,20 @@ public class TreeHelper {
 			dfs(right,rightIndex,arrayTree);
 		}
 	}
+//	public static void bfsDump(Node parent){
+//		LinkedQueue<Node> queue=new LinkedQueue<Node>
+//	}
 	/**
 	 * @param args
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
+		Node root=readTree(args[0]);
+		
+	}
+	private static Node readTree(String path) throws IOException{
 
-		FileReader fr=new FileReader(args[0]);
+		FileReader fr=new FileReader(path);
 		BufferedReader br=new BufferedReader(fr);
 		StringBuilder sb=new StringBuilder();
 		String line=null;
@@ -51,7 +58,7 @@ public class TreeHelper {
 		root.val=Integer.parseInt(arrayTree[0]);
 		
 		dfs(root,0,arrayTree);
-		
+		return root;
 	}
 
 }
