@@ -9,7 +9,19 @@ public class Tree {
 		this.root = root;
 	}
 
+	public Tree() {
+		// TODO Auto-generated constructor stub
+	}
+
 	Node root;
+
+	public Node getRoot() {
+		return root;
+	}
+
+	public void setRoot(Node root) {
+		this.root = root;
+	}
 
 	void insertBST(Node n) {
 		root = insertBSTHelper(n, root);
