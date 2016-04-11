@@ -38,7 +38,7 @@ public class BST extends Tree {
 		if(n == null )
 			return null;
 		Node parent = n.parent;
-		if(  parent.left != n)
+		if( parent !=null && parent.left != n)
 		{
 			return getSuccessorHelper(parent);
 		}

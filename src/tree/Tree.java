@@ -29,9 +29,9 @@ public class Tree {
 	}
 
 	static Node getMin(Node in) {
-		Node temp = copyNode(in);
+		Node temp = in;
 		while (temp.left != null) {
-			temp = in.left;
+			temp = temp.left;
 		}
 		return temp;
 	}
@@ -58,6 +58,9 @@ public class Tree {
 		q.add(null);
 		Node current = null;
 		int depth = 0;
+		System.out.println("LEvel order traveral");
+		System.out.println();
+
 		while (!(q.isEmpty())) {
 			current = q.remove();
 			// Null node in queue indicates end of level
@@ -66,8 +69,10 @@ public class Tree {
 					q.add(current);
 				}
 				depth++;
+				System.out.println();
 				continue;
 			}
+			System.out.print( current.val +"\t");
 			// Add left and right child if they are not null
 			if (current.left != null) {
 				q.add(current.left);
@@ -76,6 +81,8 @@ public class Tree {
 				q.add(current.right);
 			}
 		}
+		System.out.println("LEvel order traveral end");
+
 
 		return depth;
 

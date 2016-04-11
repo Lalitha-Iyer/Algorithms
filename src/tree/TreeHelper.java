@@ -10,8 +10,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.sun.xml.internal.ws.util.StringUtils;
-
 public class TreeHelper {
 
 	private static void dfs(Node parent, int parentId, String[] arrayTree) {
@@ -40,37 +38,39 @@ public class TreeHelper {
 		}
 	}
 
-	 public static void bfsDump(Node parent,int depth,int nodewidth){
-		 //String.format("%07d", number);
-		 LinkedList<Node> queue=new LinkedList<Node>();
-		 queue.add(parent);
-		 queue.add(null);
-		 int level=1;
-		 int totalWidth=(int) Math.ceil((nodewidth*Math.pow(2, depth-1)));
-		 
-		 while(queue.size()!=0){
-			 Node current=queue.poll();
-			 if(current==null){
-				 level++;
-				 if(queue.size()!=0)
-					 queue.add(null);
-				 System.out.println();
-				 continue;
-			 }
-			 int currentNodeNum=(int) Math.ceil(Math.pow(2, level-1));
-			 int padding=(totalWidth/(currentNodeNum+1)-nodewidth);
-			 if(padding<0)
-				 padding=0;
-			 System.out.print(new String(new char[padding]).replace("\0", " "));
-			 System.out.print(String.format("%0"+nodewidth+"d",current.val));
-			 
-			 if(current.left!=null)
-				 queue.add(current.left);
-			 if(current.right!=null)
-				 queue.add(current.right);
-			 
-		 }
-	 }
+	public static void bfsDump(Node parent, int depth, int nodewidth) {
+		// String.format("%07d", number);
+		LinkedList<Node> queue = new LinkedList<Node>();
+		queue.add(parent);
+		queue.add(null);
+		int level = 1;
+		int totalWidth = (int) Math.ceil((nodewidth * Math.pow(2, depth - 1)));
+
+		while (queue.size() != 0) {
+			Node current = queue.poll();
+			if (current == null) {
+				level++;
+				if (queue.size() != 0)
+					queue.add(null);
+				System.out.println();
+				continue;
+			}
+			int currentNodeNum = (int) Math.ceil(Math.pow(2, level - 1));
+			int padding = (totalWidth / (currentNodeNum + 1) - nodewidth);
+			if (padding < 0)
+				padding = 0;
+			System.out.print(new String(new char[padding]).replace("\0", " "));
+			System.out
+					.print(String.format("%0" + nodewidth + "d", current.val));
+
+			if (current.left != null)
+				queue.add(current.left);
+			if (current.right != null)
+				queue.add(current.right);
+
+		}
+	}
+
 	/**
 	 * @param args
 	 * @throws IOException
@@ -83,13 +83,20 @@ public class TreeHelper {
 		System.out.println("tree depth DFS " + tree.getDepthDFS1());
 		tree = new Tree(null);
 		System.out.println("tree depth BFS " + tree.getDepthBFS());
-		Node bstRoot = createBST();
-		bfsDump(bstRoot,7,3);
+		Tree bstTree = createBST();
+		Node bstRoot = bstTree.root;
+		bfsDump(bstRoot, 7, 3);
 		bstRoot.inOrder(bstRoot);
 		System.out.println();
-		//System.out.println("Sucessor of Root value "+bstRoot.val+ "is "+ BST.getSuccessor(bstRoot).val);	
-		System.out.println("Sucessor of Root value "+bstRoot.val+ "is "+ BST.getPredecessor(bstRoot).val);	
-		
+		// System.out.println("Sucessor of Root value "+bstRoot.val+ "is "+
+		// BST.getSuccessor(bstRoot).val);
+		System.out.println("Sucessor of Root value " + bstRoot.val + "is "
+				+ BST.getPredecessor(bstRoot).val);
+
+		// System.out.println(bstTree.getDepthBFS());
+		// System.out.println("Sucessor of Root value "+bstRoot.val+ "is "+
+		// BST.getSuccessor(bstRoot).val);
+
 	}
 
 	public static Node readTree(String path) throws IOException {
@@ -112,31 +119,27 @@ public class TreeHelper {
 		}
 		return root;
 	}
-	
-	
-	public static Node  createBST()
-	{
-			Integer[] in = generateRandomArray(10);
-			BST tree = new BST();
-			
-			for(Integer i : in)
-			{
-				Node n = new Node(i, null, null,  null);
-				tree.insertBST(n);
-			}		
-			
-			return tree.root;
-	}
-	
-	public static Integer[] generateRandomArray(int size)
-	{
-		Integer[] array=new Integer[size*10];
-		for(int i=0;i<array.length;i++){
-			array[i]=i;
+
+	public static Tree createBST() {
+		Integer[] in = generateRandomArray(10);
+		BST tree = new BST();
+		// Integer[] in = { 44, 62, 64, 52, 68, 83, 92 };
+		for (Integer i : in) {
+			Node n = new Node(i, null, null, null);
+			tree.insertBST(n);
 		}
-		List<Integer> list=Arrays.asList(array);
+
+		return tree;
+	}
+
+	public static Integer[] generateRandomArray(int size) {
+		Integer[] array = new Integer[size * 10];
+		for (int i = 0; i < array.length; i++) {
+			array[i] = i;
+		}
+		List<Integer> list = Arrays.asList(array);
 		Collections.shuffle(list);
-		return (Integer[]) Arrays.copyOfRange(list.toArray(),0,size);
+		return (Integer[]) Arrays.copyOfRange(list.toArray(), 0, size);
 	}
 
 }
