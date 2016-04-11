@@ -48,12 +48,12 @@ public class BST extends Tree {
 		}
 	}
 	
-	Node getPredecessor(Node n)
+	static Node getPredecessor(Node n)
 	{
 		if(n.left!=null){
 			Node current=n.left;
-			while(current.left!=null){
-				current=current.left;
+			while(current.right!=null){
+				current=current.right;
 			}
 			return current;
 		}else{
@@ -61,7 +61,7 @@ public class BST extends Tree {
 			while(true){
 				if(current.parent==null)
 					return null;
-				if(current.parent.left==current)
+				if(current.parent.right==current)
 					return current.parent;
 				current=current.parent;
 			}

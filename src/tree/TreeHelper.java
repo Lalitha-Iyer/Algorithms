@@ -77,17 +77,19 @@ public class TreeHelper {
 	 */
 	public static void main(String[] args) throws IOException {
 		Node root = readTree(args[0]);
-		bfsDump(root,7,3);
+
 		Tree tree = new Tree(root);
 		System.out.println("tree depth BFS " + tree.getDepthBFS());
 		System.out.println("tree depth DFS " + tree.getDepthDFS1());
 		tree = new Tree(null);
 		System.out.println("tree depth BFS " + tree.getDepthBFS());
 		Node bstRoot = createBST();
+		bfsDump(bstRoot,7,3);
 		bstRoot.inOrder(bstRoot);
 		System.out.println();
-		System.out.println("Sucessor of Root value "+bstRoot.val+ "is "+ BST.getSuccessor(bstRoot).val);	
-	
+		//System.out.println("Sucessor of Root value "+bstRoot.val+ "is "+ BST.getSuccessor(bstRoot).val);	
+		System.out.println("Sucessor of Root value "+bstRoot.val+ "is "+ BST.getPredecessor(bstRoot).val);	
+		
 	}
 
 	public static Node readTree(String path) throws IOException {
