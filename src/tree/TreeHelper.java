@@ -81,7 +81,7 @@ public class TreeHelper {
 	public static Node  createBST()
 	{
 			Integer[] in = generateRandomArray(10);
-			Tree tree = new Tree();
+			Tree tree = new BST();
 			
 			for(Integer i : in)
 			{

@@ -1,5 +1,5 @@
 package tree;
 
-public class BST {
+public class BST extends Tree {
 
 }
