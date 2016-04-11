@@ -83,7 +83,9 @@ public class TreeHelper {
 		System.out.println("tree depth DFS " + tree.getDepthDFS1());
 		tree = new Tree(null);
 		System.out.println("tree depth BFS " + tree.getDepthBFS());
-		
+		Node bstRoot = createBST();
+		bstRoot.inOrder(bstRoot);
+	
 	}
 
 	public static Node readTree(String path) throws IOException {
@@ -106,6 +108,22 @@ public class TreeHelper {
 		}
 		return root;
 	}
+	
+	
+	public static Node  createBST()
+	{
+			Integer[] in = generateRandomArray(10);
+			BST tree = new BST();
+			
+			for(Integer i : in)
+			{
+				Node n = new Node(i, null, null,  null);
+				tree.insertBST(n);
+			}		
+			
+			return tree.root;
+	}
+	
 	public static Integer[] generateRandomArray(int size)
 	{
 		Integer[] array=new Integer[size*10];
