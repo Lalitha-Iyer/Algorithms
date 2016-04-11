@@ -11,6 +11,25 @@ public class Tree {
 
 	Node root;
 
+	void insertBST(Node n) {
+		root = insertBSTHelper(n, root);
+
+	}
+
+	Node insertBSTHelper(Node in, Node currentRoot) {
+		if (currentRoot == null) {
+			return in;
+		}
+		if (in.val > currentRoot.val) {
+			currentRoot.right = insertBSTHelper(in, currentRoot.right);
+
+		} else {
+			currentRoot.left = insertBSTHelper(in, currentRoot.left);
+		}
+		return currentRoot;
+
+	}
+
 	int getDepthBFS() {
 
 		LinkedList<Node> q = new LinkedList<Node>();
@@ -21,9 +40,9 @@ public class Tree {
 		q.add(null);
 		Node current = null;
 		int depth = 0;
-		while (!(q.isEmpty() )) {
+		while (!(q.isEmpty())) {
 			current = q.remove();
-			//Null node in queue indicates end of level
+			// Null node in queue indicates end of level
 			if (current == null) {
 				if (!q.isEmpty()) {
 					q.add(current);
@@ -31,7 +50,7 @@ public class Tree {
 				depth++;
 				continue;
 			}
-			//Add left and right child if they are not null
+			// Add left and right child if they are not null
 			if (current.left != null) {
 				q.add(current.left);
 			}
@@ -44,41 +63,43 @@ public class Tree {
 
 	}
 
-	public int getDepthDFS(){
-		int[] maxDepth={1};
-		getDepthDFS(root,1,maxDepth);
+	public int getDepthDFS() {
+		int[] maxDepth = { 1 };
+		getDepthDFS(root, 1, maxDepth);
 		return maxDepth[0];
 	}
-	private void getDepthDFS(Node parent,int currentDepth,int[] maxDepth) {
-		if(parent.left!=null){
-			getDepthDFS(parent.left,currentDepth+1,maxDepth);
+
+	private void getDepthDFS(Node parent, int currentDepth, int[] maxDepth) {
+		if (parent.left != null) {
+			getDepthDFS(parent.left, currentDepth + 1, maxDepth);
 		}
-		if(parent.right!=null){
-			getDepthDFS(parent.right,currentDepth+1,maxDepth);
+		if (parent.right != null) {
+			getDepthDFS(parent.right, currentDepth + 1, maxDepth);
 		}
-		if(parent.left==null&&parent.right==null&&currentDepth>maxDepth[0]){
-			maxDepth[0]=currentDepth;
+		if (parent.left == null && parent.right == null
+				&& currentDepth > maxDepth[0]) {
+			maxDepth[0] = currentDepth;
 		}
 	}
-	
-	
-	public int getDepthDFS1(){
-		int maxDepth= 1;
-		maxDepth = getDepthDFS1(root,1);
+
+	public int getDepthDFS1() {
+		int maxDepth = 1;
+		maxDepth = getDepthDFS1(root, 1);
 		return maxDepth;
 	}
-	private int getDepthDFS1(Node parent,int currentDepth) {
-		int leftMax=-1,rightMax=-1;
-		if(parent.left!=null){
-			leftMax=getDepthDFS1(parent.left,currentDepth+1);
+
+	private int getDepthDFS1(Node parent, int currentDepth) {
+		int leftMax = -1, rightMax = -1;
+		if (parent.left != null) {
+			leftMax = getDepthDFS1(parent.left, currentDepth + 1);
 		}
-		if(parent.right!=null){
-			rightMax=getDepthDFS1(parent.right,currentDepth+1);
+		if (parent.right != null) {
+			rightMax = getDepthDFS1(parent.right, currentDepth + 1);
 		}
-		if(parent.left==null&&parent.right==null){
+		if (parent.left == null && parent.right == null) {
 			return currentDepth;
 		}
-		return leftMax>rightMax?leftMax:rightMax;
+		return leftMax > rightMax ? leftMax : rightMax;
 	}
-	
+
 }
