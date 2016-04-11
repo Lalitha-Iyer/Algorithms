@@ -29,7 +29,23 @@ public class BST extends Tree {
 	
 	Node getPredecessor(Node n)
 	{
-		return n;		
+		if(n.left!=null){
+			Node current=n.left;
+			while(current.left!=null){
+				current=current.left;
+			}
+			return current;
+		}else{
+			Node current=n;
+			while(true){
+				if(current.parent==null)
+					return null;
+				if(current.parent.left==current)
+					return current.parent;
+				current=current.parent;
+			}
+		}
+			
 	}
 	
 
