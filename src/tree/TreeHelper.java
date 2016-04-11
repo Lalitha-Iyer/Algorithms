@@ -87,8 +87,9 @@ public class TreeHelper {
 
 		bstRoot.inOrder(bstRoot);
 		System.out.println();
-		System.out.println(bstTree.getDepthBFS());
-		System.out.println("Sucessor of Root value "+bstRoot.val+ "is "+ BST.getSuccessor(bstRoot).val);	
+	//	System.out.println(bstTree.getDepthBFS());
+	//	System.out.println("Sucessor of Root value "+bstRoot.val+ "is "+ BST.getSuccessor(bstRoot).val);	
+		
 	
 	}
 
@@ -118,7 +119,7 @@ public class TreeHelper {
 	{
 			Integer[] in = generateRandomArray(10);
 			BST tree = new BST();
-			
+		//	Integer[] in = { 44, 62, 64, 52, 68, 83, 92 };
 			for(Integer i : in)
 			{
 				Node n = new Node(i, null, null,  null);

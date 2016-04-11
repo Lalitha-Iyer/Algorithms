@@ -60,6 +60,10 @@ public class Node {
 		else {
 			inOrder(root.left);
 			System.out.print("\t" + root.val);
+			if(BST.getSuccessor(root)!=null)
+			{ System.out.println ("\t" + BST.getSuccessor(root).val);
+			}
+
 			inOrder(root.right);
 		}
 	}
