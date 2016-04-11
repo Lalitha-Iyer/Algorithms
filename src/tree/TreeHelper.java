@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class TreeHelper {
 
@@ -69,6 +73,16 @@ public class TreeHelper {
 			dfs(root, 0, arrayTree);
 		}
 		return root;
+	}
+	public static Integer[] generateRandomArray(int size)
+	{
+		Integer[] array=new Integer[size*10];
+		for(int i=0;i<array.length;i++){
+			array[i]=i;
+		}
+		List<Integer> list=Arrays.asList(array);
+		Collections.shuffle(list);
+		return (Integer[]) Arrays.copyOfRange(list.toArray(),0,size);
 	}
 
 }
