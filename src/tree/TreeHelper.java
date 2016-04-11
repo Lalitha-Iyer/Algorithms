@@ -85,6 +85,8 @@ public class TreeHelper {
 		System.out.println("tree depth BFS " + tree.getDepthBFS());
 		Node bstRoot = createBST();
 		bstRoot.inOrder(bstRoot);
+		System.out.println();
+		System.out.println("Sucessor of Root value "+bstRoot.val+ "is "+ BST.getSuccessor(bstRoot).val);	
 	
 	}
 

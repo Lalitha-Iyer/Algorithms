@@ -61,7 +61,6 @@ public class Node {
 			inOrder(root.left);
 			System.out.print("\t" + root.val);
 			inOrder(root.right);
-
 		}
 	}
 

@@ -19,11 +19,34 @@ public class Tree {
 		return root;
 	}
 
+	static Node copyNode(Node n) {
+		Node out = new Node();
+		out.val = n.val;
+		out.parent = n.parent;
+		out.left = n.left;
+		out.right = n.right;
+		return out;
+	}
+
+	static Node getMin(Node in) {
+		Node temp = copyNode(in);
+		while (temp.left != null) {
+			temp = in.left;
+		}
+		return temp;
+	}
+
+	
+	static Node getMax(Node in) {
+		Node temp = copyNode(in);
+		while (temp.right != null) {
+			temp = temp.right;
+		}
+		return temp;
+	}
 	public void setRoot(Node root) {
 		this.root = root;
 	}
-
-
 
 	int getDepthBFS() {
 
