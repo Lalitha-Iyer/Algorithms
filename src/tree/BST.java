@@ -25,7 +25,7 @@ public class BST extends Tree {
 	}
 	
 	
-	Node getSuccessor(Node n)
+	static Node getSuccessor(Node n)
 	{
 		if(n.right !=null)
 			return getMin(n.right);
@@ -33,12 +33,12 @@ public class BST extends Tree {
 			return getSuccessorHelper(n);
 	}
 	
-	Node getSuccessorHelper(Node n)
+	static Node getSuccessorHelper(Node n)
 	{
-		if(n == null)
+		if(n == null )
 			return null;
 		Node parent = n.parent;
-		if( parent.left != n)
+		if(  parent.left != n)
 		{
 			return getSuccessorHelper(parent);
 		}

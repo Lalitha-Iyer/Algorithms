@@ -19,7 +19,7 @@ public class Tree {
 		return root;
 	}
 
-	Node copyNode(Node n) {
+	static Node copyNode(Node n) {
 		Node out = new Node();
 		out.val = n.val;
 		out.parent = n.parent;
@@ -28,7 +28,7 @@ public class Tree {
 		return out;
 	}
 
-	Node getMin(Node in) {
+	static Node getMin(Node in) {
 		Node temp = copyNode(in);
 		while (temp.left != null) {
 			temp = in.left;
@@ -37,7 +37,7 @@ public class Tree {
 	}
 
 	
-	Node getMax(Node in) {
+	static Node getMax(Node in) {
 		Node temp = copyNode(in);
 		while (temp.right != null) {
 			temp = temp.right;
