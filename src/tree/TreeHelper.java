@@ -7,7 +7,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+
+import com.sun.xml.internal.ws.util.StringUtils;
 
 public class TreeHelper {
 
@@ -37,15 +40,44 @@ public class TreeHelper {
 		}
 	}
 
-	// public static void bfsDump(Node parent){
-	// LinkedQueue<Node> queue=new LinkedQueue<Node>
-	// }
+	 public static void bfsDump(Node parent,int depth,int nodewidth){
+		 //String.format("%07d", number);
+		 LinkedList<Node> queue=new LinkedList<Node>();
+		 queue.add(parent);
+		 queue.add(null);
+		 int level=1;
+		 int totalWidth=(int) Math.ceil((nodewidth*Math.pow(2, depth-1)));
+		 
+		 while(queue.size()!=0){
+			 Node current=queue.poll();
+			 if(current==null){
+				 level++;
+				 if(queue.size()!=0)
+					 queue.add(null);
+				 System.out.println();
+				 continue;
+			 }
+			 int currentNodeNum=(int) Math.ceil(Math.pow(2, level-1));
+			 int padding=(totalWidth/(currentNodeNum+1)-nodewidth);
+			 if(padding<0)
+				 padding=0;
+			 System.out.print(new String(new char[padding]).replace("\0", " "));
+			 System.out.print(String.format("%0"+nodewidth+"d",current.val));
+			 
+			 if(current.left!=null)
+				 queue.add(current.left);
+			 if(current.right!=null)
+				 queue.add(current.right);
+			 
+		 }
+	 }
 	/**
 	 * @param args
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
 		Node root = readTree(args[0]);
+		bfsDump(root,7,3);
 		Tree tree = new Tree(root);
 		System.out.println("tree depth BFS " + tree.getDepthBFS());
 		System.out.println("tree depth DFS " + tree.getDepthDFS1());
