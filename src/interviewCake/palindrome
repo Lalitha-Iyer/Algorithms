@@ -1,0 +1,20 @@
+function isPalindrome(word){
+    
+    cArray = word.split('');
+    
+    i =-1;
+    j = word.length;
+    
+    //LI 
+   // cArray[0... i] == C[ word.length .. j]
+    while( j-i > 1 )
+    {
+        i ++ ;
+        j --;
+        if( cArray[i] !== cArray[j]){
+            return false;
+        }
+
+    }
+    return true;
+}
