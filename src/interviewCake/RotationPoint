@@ -1,0 +1,29 @@
+function findRotationPointHelper(words, lb,up)
+{
+
+    if( up - lb == 1)
+    {   
+        if(words[up] > words[lb])  
+         return 0;
+        else
+          return up;
+    }
+
+    mid = Math.floor(( up +lb)/2);
+    while(words[mid] > words[lb]){
+        lb = mid;
+        mid = Math.floor((up+lb)/2);
+    }
+
+    return findRotationPointHelper(words, lb,mid);
+};
+
+
+function findRotationPoint(words){
+return findRotationPointHelper(words, 0, words.length-1);
+};
+
+
+console.log(findRotationPoint(["m","n","q","a","b"]));
+
+
