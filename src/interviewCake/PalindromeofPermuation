@@ -1,25 +1,13 @@
-function isPalindrome(word){
-    
-    cArray = word.split('');
-    
-    i =-1;
-    j = word.length;
-    
-    //LI 
-   // cArray[0... i] == C[ word.length .. j]
-    while( j-i > 1 )
-    {
-        i ++ ;
-        j --;
-        if( cArray[i] !== cArray[j]){
-            return false;
-        }
 
-    }
-    return true;
-}
+/*
+Write an efficient function that checks whether any permutation ↴ of an input string is a palindrome ↴ .
+Examples:
 
-
+"civic" should return true
+"ivicc" should return true
+"civil" should return false
+"livci" should return false
+*/
 function isPermutePalindrome(word)
 {
         cArray = word.split('');
