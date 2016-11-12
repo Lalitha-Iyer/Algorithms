@@ -1,13 +1,3 @@
-/*
-Write an efficient function that checks whether any permutation ↴ of an input string is a palindrome ↴ .
-Examples:
-"civic" should return true
-"ivicc" should return true
-"civil" should return false
-"livci" should return false
-*/
-
-
 function isPalindrome(word){
     
     cArray = word.split('');
@@ -30,4 +20,20 @@ function isPalindrome(word){
 }
 
 
-console.log(isPalindrome('nan'));
+function isPermutePalindrome(word)
+{
+        cArray = word.split('');
+        var mySet = new Set();
+        cArray.forEach(function(element) {
+         //   console.log(element);
+            mySet.has(element)?mySet.delete(element):mySet.add(element);
+        });
+
+        console.log(mySet.size);
+        
+        return mySet.size <=1 ;
+     
+}
+
+//console.log(isPalindrome('nan'));
+console.log(isPermutePalindrome('malayalam'));
