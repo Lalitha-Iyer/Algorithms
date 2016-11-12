@@ -3,16 +3,21 @@ function findRotationPointHelper(words, lb,up)
 
     if( up - lb == 1)
     {   
-        if(words[up] > words[lb])  
+        if(words[up] >= words[lb])  
          return 0;
         else
           return up;
     }
 
-    mid = Math.floor(( up +lb)/2);
-    while(words[mid] > words[lb]){
+    mid = Math.floor(( up +lb)/2 );
+    while(words[mid] > words[lb] ){
         lb = mid;
+        if(mid -up< 1) {
+             mid = up
+         }
+        else{
         mid = Math.floor((up+lb)/2);
+        }
     }
 
     return findRotationPointHelper(words, lb,mid);
@@ -24,6 +29,20 @@ return findRotationPointHelper(words, 0, words.length-1);
 };
 
 
-console.log(findRotationPoint(["m","n","q","a","b"]));
+console.log(findRotationPoint([ 'k','v','a','b','c','d','e','g','i' ]
+                           ));
 
-
+console.log(findRotationPoint([ 'k','v','v' ] ));
+console.log(findRotationPoint([
+    'ptolemaic',
+    'retrograde',
+    'supplant',
+    'undulate',
+    'xenoepist',
+    'asymptote', // <-- rotates here!
+    'babka',
+    'banoffee',
+    'engender',
+    'karpatka',
+    'othellolagkage',
+]));
