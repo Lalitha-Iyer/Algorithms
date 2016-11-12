@@ -1,0 +1,49 @@
+/*Write a function for reversing a linked list ↴ . Do it in-place ↴ .
+
+Your function will have one input: the head of the list.
+
+Your function should return the new head of the list.
+*/
+
+  function LinkedListNode(value) {
+    this.value = value;
+    this.next = null;
+}
+
+ 
+
+ function reverse(root)
+ {
+    previous = null;
+    current = root;
+    while(current!=null)
+    {   next = current.next;
+        current.next = previous;  
+        // finshied the current element advance it  
+        previous = current;
+        current = next;
+    
+    }
+    return previous;
+ }
+
+ function printList(root)
+ {
+    while(root!=null){
+        console.log(root.value);
+        root = root.next;
+    }
+
+ }
+
+ (function(){
+
+     root = new LinkedListNode(5);
+     root.next = new LinkedListNode(6);
+     root.next.next = new LinkedListNode(7);
+     root.next.next.next = new LinkedListNode(8);
+
+     console.log(printList(root));
+     root = reverse(root);   
+     console.log(printList(root));
+ })();
