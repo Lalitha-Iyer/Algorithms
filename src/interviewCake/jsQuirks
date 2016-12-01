@@ -1,1 +1,4 @@
 product = a.reduce(function(a,b){ return a *b ; },0 );
+
+REverse words in a sentence
+str.split("").reverse().join("").split(" ").reverse().join(" ")
