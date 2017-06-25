@@ -11,6 +11,8 @@ function BST(root) {
     this.inOrder = inOrder;
     this.preOrder = preOrder;
     this.postOrder = postOrder;
+    this.nextNode = nextNode;
+    this.previousNode = previousNode;
 }
 
 function insert(data) {
@@ -63,4 +65,60 @@ function postOrder(node) {
     postOrder(node.left)
     postOrder(node.right)
     console.log(node.val + " ")
+}
+
+//in order successor
+function nextNode(node) {
+
+    if (this.root == null)
+        return null
+    let successor = {}
+    nextNodeInOrder(this.root, node, successor)
+    return successor.val
+
+}
+
+//in order successor
+function previousNode(val) {
+
+    if (this.root == null)
+        return null
+    let pre = {}
+    previousNodeInOrder(this.root, val, pre)
+    prevFlag = false;
+    return pre.val
+
+}
+
+flag = false
+
+function nextNodeInOrder(root, val, successor) {
+    if (root == null) return
+    nextNodeInOrder(root.left, val, successor)
+    if (flag) {
+        successor.val = root;
+        flag = false;
+    }
+    if (root.val === val) {
+        flag = true
+    }
+    nextNodeInOrder(root.right, val, successor)
+
+
+}
+
+prevFlag = false;
+
+function previousNodeInOrder(root, val, pre) {
+    if (root == null) return
+    nextNodeInOrder(root.left, val, pre)
+    if (!prevFlag) {
+        pre.val = root;
+    }
+    if (root.val === val) {
+        prevFlag = true
+    }
+    nextNodeInOrder(root.right, val, pre)
+
+
 }
